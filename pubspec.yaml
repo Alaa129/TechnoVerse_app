@@ -1,0 +1,33 @@
+name: alaa
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  video_player: ^2.1.6
+  cached_network_image: ^3.0.0
+  intl_phone_number_input: any
+  smooth_page_indicator: any
+  country_code_picker: ^2.0.2
+  country_list_pick: ^1.0.1+6
+  youtube_player_flutter: ^9.0.0
+  sqflite: ^2.3.3
+  flutter_bloc: ^8.1.5
+  path: ^1.9.0
+  path_provider: ^2.1.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
