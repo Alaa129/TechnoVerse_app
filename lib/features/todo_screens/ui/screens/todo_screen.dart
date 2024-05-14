@@ -31,7 +31,6 @@ class _TodoScreenState extends State<TodoScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     BlocProvider.of<AddTaskCubit>(context).getTasksData();
   }
@@ -49,46 +48,49 @@ class _TodoScreenState extends State<TodoScreen> {
           )),
       body: BlocBuilder<AddTaskCubit, AddTaskState>(
         builder: (context, state) {
-          if (state is AppDatabaseInitialized) {
-            return Center(
-              child: CircularProgressIndicator(
-                color: Color.fromARGB(255, 88, 101, 224).withOpacity(0.2),
-              ),
-            );
-          }
-          if (state is GetDatabase) {
+          if (state is AppDatabaseLoading) {
+            return Center(child: CircularProgressIndicator());
+          } else if (state is GetDatabase) {
             todoList = state.taskModel;
+            if (todoList!.isEmpty) {
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset("assets/images/wallpaper.png"),
+                  Text(
+                    'No tasks found, add some!',
+                    style: TextStyle(fontSize: 16, color: Colors.black),
+                  ),
+                ],
+              );
+            }
             return ListView.builder(
               itemCount: todoList!.length,
               itemBuilder: (context, index) {
-                // taskId = todoList![index].id;
-                return todoList!.isEmpty
-                    ? Container(
-                        color: Colors.amber,
-                        child: Center(child: Text('No Todo Yet')))
-                    : TodoItemCard(
-                        taskName: todoList![index].title,
-                        color: taskColors[todoList![index].color],
-                        taskDate: todoList![index].date,
-                        idTask: todoList![index].id,
-                        onchange: checkBoxChanged,
-                      );
+                return TodoItemCard(
+                  taskName: todoList![index].title,
+                  color: taskColors[todoList![index].color],
+                  taskDate: todoList![index].date,
+                  idTask: todoList![index].id,
+                  onchange: checkBoxChanged,
+                );
               },
             );
           } else {
-            return Container(
-              child: Center(
-                child: CircularProgressIndicator(
-                  color: Color.fromARGB(255, 88, 101, 224).withOpacity(0.2),
-                ),
-              ),
-            );
+            return Center(child: Text("Failed to load tasks"));
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          Navigator.of(context).pushNamed(Routes.addTodoScreen);
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => BlocProvider.value(
+                value: BlocProvider.of<AddTaskCubit>(context),
+                child: AddTodoScreen(),
+              ),
+            ),
+          );
         },
         child: Icon(Icons.add),
       ),

@@ -41,7 +41,11 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<AddTaskCubit>().getTasksData();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -58,7 +62,9 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
         body: BlocConsumer<AddTaskCubit, AddTaskState>(
           listener: (context, state) {
             if (state is AppDatabaseUserCreated) {
-              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Task added successfully!")));
+              Navigator.of(context).pop(true);
             }
           },
           builder: (context, state) {
@@ -84,7 +90,8 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                       controller: taskTitleController,
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.grey[200],
+                        fillColor:
+                            Color.fromARGB(255, 88, 101, 224).withOpacity(0.2),
                         hintText: 'Enter Task Title',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -103,7 +110,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                         ),
                         hintStyle: const TextStyle(
                           fontSize: 16,
-                          color: Colors.grey,
+                          color: Colors.black54,
                         ),
                       ),
                     ),
@@ -135,7 +142,8 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.grey[200],
+                        fillColor:
+                            Color.fromARGB(255, 88, 101, 224).withOpacity(0.2),
                         hintText: 'Task Date',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -154,7 +162,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                         ),
                         hintStyle: const TextStyle(
                           fontSize: 16,
-                          color: Colors.grey,
+                          color: Colors.black54,
                         ),
                       ),
                     ),
@@ -184,18 +192,20 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                                     context: context,
                                     initialTime: TimeOfDay.now(),
                                   ).then((value) {
-                                    taskStartTimeController.text =
-                                        value!.format(context);
-
-                                    startTime = value;
-                                    endInitialTime = value;
-
-                                    setState(() {});
+                                    if (value != null) {
+                                      taskStartTimeController.text =
+                                          value!.format(context);
+                                      setState(() {
+                                        startTime = value;
+                                        endInitialTime = value;
+                                      });
+                                    }
                                   });
                                 },
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Colors.grey[200],
+                                  fillColor: Color.fromARGB(255, 88, 101, 224)
+                                      .withOpacity(0.2),
                                   hintText: 'Start Time',
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
@@ -214,7 +224,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                                   ),
                                   hintStyle: const TextStyle(
                                     fontSize: 16,
-                                    color: Colors.grey,
+                                    color: Colors.black54,
                                   ),
                                 ),
                               ),
@@ -245,25 +255,28 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                                     context: context,
                                     initialTime: endInitialTime,
                                   ).then((value) {
-                                    if (value!.hour > startTime.hour) {
-                                      if (value.minute > startTime.minute) {
+                                    if (value != null) {
+                                      if (value!.hour > startTime.hour) {
+                                        if (value.minute > startTime.minute) {
+                                          taskEndTimeController.text =
+                                              value.format(context);
+                                        } else {
+                                          debugPrint(
+                                              'End time should be greater than start time');
+                                        }
                                         taskEndTimeController.text =
                                             value.format(context);
                                       } else {
                                         debugPrint(
                                             'End time should be greater than start time');
                                       }
-                                      taskEndTimeController.text =
-                                          value.format(context);
-                                    } else {
-                                      debugPrint(
-                                          'End time should be greater than start time');
                                     }
                                   });
                                 },
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Colors.grey[200],
+                                  fillColor: Color.fromARGB(255, 88, 101, 224)
+                                      .withOpacity(0.2),
                                   hintText: 'End Time',
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
@@ -282,7 +295,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                                   ),
                                   hintStyle: const TextStyle(
                                     fontSize: 16,
-                                    color: Colors.grey,
+                                    color: Colors.black54,
                                   ),
                                 ),
                               ),
@@ -307,7 +320,8 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                     DropdownButtonFormField(
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.grey[200],
+                        fillColor:
+                            Color.fromARGB(255, 88, 101, 224).withOpacity(0.2),
                         hintText: 'Task Date',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -326,7 +340,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                         ),
                         hintStyle: const TextStyle(
                           fontSize: 16,
-                          color: Colors.grey,
+                          color: Colors.black54,
                         ),
                       ),
                       items: reminderList
@@ -403,16 +417,15 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                               ),
                             )
                             .values
-                            .toList(),
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Container(
                         width: double.infinity,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 88, 101, 224),
                           borderRadius: BorderRadius.circular(
                             12.0,
                           ),
@@ -420,15 +433,32 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                         child: MaterialButton(
                           height: 54.0,
                           onPressed: () {
-                            BlocProvider.of<AddTaskCubit>(context)
-                                .insertTaskData(
-                              title: taskTitleController.text,
-                              date: taskDateController.text,
-                              startTime: taskStartTimeController.text,
-                              endTime: taskEndTimeController.text,
-                              reminder: selectedREMINDER,
-                              color: selectedColor,
-                            );
+                            // Check if all required fields are filled
+                            if (taskTitleController.text.isEmpty ||
+                                taskDateController.text.isEmpty ||
+                                taskStartTimeController.text.isEmpty ||
+                                taskEndTimeController.text.isEmpty) {
+                              // Not all fields are filled, show a SnackBar with an error message
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text("Please fill in all fields"),
+                                  backgroundColor:
+                                      Color.fromARGB(255, 184, 76, 26),
+                                ),
+                              );
+                              BlocProvider.of<AddTaskCubit>(context)
+                                  .getTasksData();
+                            } else {
+                              BlocProvider.of<AddTaskCubit>(context)
+                                  .insertTaskData(
+                                title: taskTitleController.text,
+                                date: taskDateController.text,
+                                startTime: taskStartTimeController.text,
+                                endTime: taskEndTimeController.text,
+                                reminder: selectedREMINDER,
+                                color: selectedColor,
+                              );
+                            }
                           },
                           child: const Text(
                             'Create Task',

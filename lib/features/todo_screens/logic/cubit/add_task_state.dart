@@ -9,16 +9,20 @@ class AppInitialState extends AddTaskState {}
 
 class AppDatabaseInitialized extends AddTaskState {}
 
+class AppDatabaseInitializationFailed extends AddTaskState {}
+
 class AppDatabaseTableCreated extends AddTaskState {}
 
 class AppDatabaseOpened extends AddTaskState {}
+
+class TaskAddedSuccessfully extends AddTaskState {}
 
 class AppDatabaseUserCreated extends AddTaskState {}
 
 class AppDatabaseLoading extends AddTaskState {}
 
 class GetDatabase extends AddTaskState {
-  final List <TaskModel> taskModel;
+  final List<TaskModel> taskModel;
 
   GetDatabase({required this.taskModel});
 }

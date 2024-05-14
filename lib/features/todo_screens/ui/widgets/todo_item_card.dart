@@ -10,7 +10,8 @@ class TodoItemCard extends StatefulWidget {
       required this.color,
       required this.taskDate,
       required this.onchange,
-      this.initValue = false, required this.idTask});
+      this.initValue = false,
+      required this.idTask});
   final String taskName;
   final Color color;
   final String taskDate;

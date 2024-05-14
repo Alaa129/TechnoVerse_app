@@ -1,6 +1,8 @@
 import 'package:alaa/core/routing/app_router.dart';
 import 'package:alaa/core/routing/routes.dart';
+import 'package:alaa/features/about_screen.dart';
 import 'package:alaa/features/home_screen/home_screen.dart';
+import 'package:alaa/features/links_screens.dart';
 import 'package:alaa/features/todo_screens/ui/screens/todo_screen.dart';
 import 'package:alaa/features/videos_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,6 @@ class BottomNav extends StatefulWidget {
   State<BottomNav> createState() => _BottomNavState();
 }
 
-
 class _BottomNavState extends State<BottomNav> {
   int currentIndexScreen = 0;
 
@@ -22,6 +23,8 @@ class _BottomNavState extends State<BottomNav> {
     HomeScreen(),
     VideoScreen(),
     TodoScreen(),
+    LinkScreens(),
+    AboutScreens(),
   ];
 
   Widget bottomNavigationBar() {
@@ -41,8 +44,9 @@ class _BottomNavState extends State<BottomNav> {
           child: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
             currentIndex: currentIndexScreen,
-            selectedItemColor:Color.fromARGB(255, 88, 101, 224),
-            unselectedItemColor: Color.fromARGB(255, 88, 101, 224).withOpacity(0.6),
+            selectedItemColor: Color.fromARGB(255, 88, 101, 224),
+            unselectedItemColor:
+                Color.fromARGB(255, 88, 101, 224).withOpacity(0.6),
             onTap: (index) {
               setState(() {
                 currentIndexScreen = index;
@@ -50,26 +54,25 @@ class _BottomNavState extends State<BottomNav> {
             },
             items: const [
               BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.video_call_rounded),
-            label: 'Video',
-          ),
-          
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Todo',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.link),
-            label: 'Links',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.video_call_rounded),
+                label: 'Video',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.add),
+                label: 'Todo',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.link),
+                label: 'Links',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'About',
+              ),
             ],
           ),
         ));
