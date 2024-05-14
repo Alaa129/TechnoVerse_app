@@ -64,17 +64,27 @@ class _TodoScreenState extends State<TodoScreen> {
                 ],
               );
             }
-            return ListView.builder(
-              itemCount: todoList!.length,
-              itemBuilder: (context, index) {
-                return TodoItemCard(
-                  taskName: todoList![index].title,
-                  color: taskColors[todoList![index].color],
-                  taskDate: todoList![index].date,
-                  idTask: todoList![index].id,
-                  onchange: checkBoxChanged,
-                );
-              },
+            return Stack(
+              children: [
+                Positioned.fill(
+                  child: Image.asset(
+                    "assets/images/wallpaper.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ListView.builder(
+                  itemCount: todoList!.length,
+                  itemBuilder: (context, index) {
+                    return TodoItemCard(
+                      taskName: todoList![index].title,
+                      color: taskColors[todoList![index].color],
+                      taskDate: todoList![index].date,
+                      idTask: todoList![index].id,
+                      onchange: checkBoxChanged,
+                    );
+                  },
+                ),
+              ],
             );
           } else {
             return Center(child: Text("Failed to load tasks"));

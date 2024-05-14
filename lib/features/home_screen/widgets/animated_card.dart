@@ -40,31 +40,14 @@ class _MyListTileState extends State<AnimatedCard>
       _controller.reverse();
     }
   }
+
   List<HomeDataModel> homeDataModelList = [
-    HomeDataModel(
-        title: "Title 1",
-        description:
-            "I downloaded and installed git 2.18 easily and then I proceeded o download the zip SDK of flutter. Once I did that, I extracted it to my documents folder and then I updated the path in the tab in the control panel"),
-    HomeDataModel(
-        title: "Title 2",
-        description:
-            "Description 2"),
-    HomeDataModel(
-        title: "Title 3",
-        description:
-            "Description 3"),
-    HomeDataModel(
-        title: "Title 4",
-        description:
-            "Description 4"),
-    HomeDataModel(
-        title: "Title 5",
-        description:
-            "Description 5"),
-    HomeDataModel(
-        title: "Title 6",
-        description:
-            "Description 6"),
+    HomeDataModel(title: "هلا هلا", description: "هههههههههههههههه"),
+    HomeDataModel(title: "Title 2", description: "Description 2"),
+    HomeDataModel(title: "Title 3", description: "Description 3"),
+    HomeDataModel(title: "Title 4", description: "Description 4"),
+    HomeDataModel(title: "Title 5", description: "Description 5"),
+    HomeDataModel(title: "Title 6", description: "Description 6"),
   ];
 
   @override
@@ -84,10 +67,10 @@ class _MyListTileState extends State<AnimatedCard>
             borderRadius: BorderRadius.circular(height * 0.02),
             color: Color.fromARGB(255, 88, 101, 224).withOpacity(0.2),
           ),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-             CustomText(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+            CustomText(
               txt: homeDataModelList[widget.index].title,
+              textAlign: TextAlign.right,
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Color.fromARGB(255, 23, 33, 114),
@@ -97,6 +80,7 @@ class _MyListTileState extends State<AnimatedCard>
             ),
             CustomText(
                 txt: homeDataModelList[widget.index].description,
+                textAlign: TextAlign.right,
                 fontSize: 12,
                 color: Colors.black.withOpacity(0.5),
                 overflow: TextOverflow.ellipsis),
@@ -113,6 +97,7 @@ class _MyListTileState extends State<AnimatedCard>
           ),
           child: ListTile(
             title: CustomText(
+              textAlign: TextAlign.right,
               txt: homeDataModelList[widget.index].title,
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -120,6 +105,7 @@ class _MyListTileState extends State<AnimatedCard>
             ),
             subtitle: homeDataModelList[widget.index].description.isNotEmpty
                 ? CustomText(
+                    textAlign: TextAlign.right,
                     txt: homeDataModelList[widget.index].description,
                     fontSize: 12,
                     color: Colors.black.withOpacity(0.5))

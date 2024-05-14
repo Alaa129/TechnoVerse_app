@@ -7,7 +7,8 @@ class CustomText extends StatelessWidget {
       required this.fontSize,
       this.color,
       this.fontWeight,
-      this.textAlign, this.overflow})
+      this.textAlign,
+      this.overflow})
       : super(key: key);
   final String txt;
   final double fontSize;

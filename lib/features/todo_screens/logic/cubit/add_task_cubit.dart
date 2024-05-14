@@ -43,7 +43,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
       debugPrint('Task Data Inserted');
 
       // usernameController.clear();
-
+      getTasksData();
       emit(AppDatabaseUserCreated());
     });
   }
