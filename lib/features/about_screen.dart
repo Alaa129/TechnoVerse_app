@@ -79,6 +79,21 @@ class AboutScreens extends StatelessWidget {
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
+          const Text(
+            'Esraa Hassan Mansour',
+            style: TextStyle(
+                fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
+          ),
+          const Text(
+            'Nada Zeinhom Mohammed',
+            style: TextStyle(
+                fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
+          ),
+          const Text(
+            'Hoda Mohamed Gad',
+            style: TextStyle(
+                fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
+          ),
           SizedBox(height: height * 0.04),
           Row(
             children: [
