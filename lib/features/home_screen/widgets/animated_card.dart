@@ -86,7 +86,9 @@ class _MyListTileState extends State<AnimatedCard>
                 textAlign: TextAlign.right,
                 fontSize: 12,
                 color: Colors.black.withOpacity(0.5),
-                overflow: TextOverflow.ellipsis),
+                overflow: TextOverflow.ellipsis,
+                // maxLines: 1
+                ),
           ]),
         ),
         secondChild: Container(

@@ -9,7 +9,7 @@ class CustomTxtForm extends StatelessWidget {
       this.passwordTxt,
       required this.errorMsg,
       this.isPassword = false,
-      this.suffixIcon})
+      this.suffixIcon, this.controller})
       : super(key: key);
   final String txt;
   final String hint;
@@ -17,6 +17,7 @@ class CustomTxtForm extends StatelessWidget {
   final bool? passwordTxt;
   final bool? isPassword;
   final Widget? suffixIcon;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class CustomTxtForm extends StatelessWidget {
           height: 8,
         ),
         TextFormField(
+          controller: controller,
           obscureText: isPassword!,
           decoration: InputDecoration(
               suffixIcon: suffixIcon,
@@ -35,7 +37,7 @@ class CustomTxtForm extends StatelessWidget {
               border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(30)))),
           validator: (value) {
-            if (value!.isEmpty) {
+            if (value == null || value.isEmpty) {
               return errorMsg;
             }
             return null;

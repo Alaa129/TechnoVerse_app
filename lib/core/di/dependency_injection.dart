@@ -14,6 +14,6 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<GoogleSignIn>(GoogleSignIn());
   getIt.registerSingleton<FirebaseAuth>(FirebaseAuth.instance);
   // google sign in
-  getIt.registerLazySingleton<GoogleAuthCubit>(
+  getIt.registerFactory<GoogleAuthCubit>(
       () => GoogleAuthCubit(getIt(), getIt()));
 }

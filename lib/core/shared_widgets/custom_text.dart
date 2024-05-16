@@ -8,7 +8,7 @@ class CustomText extends StatelessWidget {
       this.color,
       this.fontWeight,
       this.textAlign,
-      this.overflow})
+      this.overflow, this.maxLines})
       : super(key: key);
   final String txt;
   final double fontSize;
@@ -16,12 +16,14 @@ class CustomText extends StatelessWidget {
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       txt,
       textAlign: textAlign,
+      maxLines: maxLines,
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
