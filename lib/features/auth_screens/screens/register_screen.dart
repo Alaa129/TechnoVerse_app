@@ -23,7 +23,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         // key: context.read<GoogleAuthCubit>().formKey,
@@ -75,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           WidgetSpan(
                               child: Icon(
                             Icons.help,
-                            color: Color.fromARGB(225, 88, 101, 224),
+                            color: Color.fromARGB(224, 88, 101, 224),
                             size: 15,
                           ))
                         ])),

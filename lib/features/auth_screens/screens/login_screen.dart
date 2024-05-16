@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                               text: 'Help',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 119, 104, 233),
+                                  color: Color(0xFF7768E9),
                                   fontSize: 15)),
                           WidgetSpan(
                               child: Icon(
