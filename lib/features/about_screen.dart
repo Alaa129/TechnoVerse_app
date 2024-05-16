@@ -70,27 +70,27 @@ class AboutScreens extends StatelessWidget {
           ),
           SizedBox(height: height * 0.006),
           const Text(
-            'Alaa Ahmed Shehab',
+            'Alaa Ahmed Shehab (Application)',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
           const Text(
-            'Eman Ismail Abdelkarim',
+            'Eman Ismail Abdelkarim (Application)',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
           const Text(
-            'Esraa Hassan Mansour',
+            'Esraa Hassan Mansour (vedios)',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
           const Text(
-            'Nada Zeinhom Mohammed',
+            'Nada Zeinhom Mohammed (vedios)',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
           const Text(
-            'Hoda Mohamed Gad',
+            'Hoda Mohamed Gad (vedios)',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),

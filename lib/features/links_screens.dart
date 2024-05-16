@@ -45,13 +45,13 @@ class LinkScreens extends StatelessWidget {
               title: 'كورس تعلم الفوتوشوب للمبتدئين',
               description: 'قناة نور ديزاين لتعليم اساسيات برنامج الفوتوشوب',
               imageUrl: "assets/images/photoshop.jpg",
-              linkUrl: "https://bit.ly/2N3SHtv",
+              linkUrl: "https://bit.ly/2zsp8uC",
             ),
             LinkCard(
               title: 'كورس فوتوشوب احترافي',
               description: 'قناة نور ديزاين لتعليم الفوتوشوب حتي الاحتراف',
               imageUrl: "assets/images/photoshop_advanced.png",
-              linkUrl: "https://bit.ly/2N3SHtv",
+              linkUrl: "https://bit.ly/3oU7TXb",
             ),
             LinkCard(
               title: 'كورس افترافيكت',
