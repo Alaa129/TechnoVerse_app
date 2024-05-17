@@ -2,6 +2,7 @@ import 'package:alaa/core/shared_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+bool isFullScreen = false;
 class VideoScreen extends StatefulWidget {
   @override
   _VideoScreenState createState() => _VideoScreenState();
@@ -18,7 +19,6 @@ class _VideoScreenState extends State<VideoScreen> {
 
   late final List<YoutubePlayerController> _controllers;
 
-  bool _isFullScreen = false;
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _VideoScreenState extends State<VideoScreen> {
 
   void _onPlayerStateChange() {
     setState(() {
-      _isFullScreen = _controllers[0].value.isFullScreen;
+      isFullScreen = _controllers[0].value.isFullScreen;
     });
   }
 
@@ -56,7 +56,7 @@ class _VideoScreenState extends State<VideoScreen> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: _isFullScreen
+      appBar: isFullScreen
           ? null
           : PreferredSize(
               child: CustomAppBar(
@@ -74,10 +74,16 @@ class _VideoScreenState extends State<VideoScreen> {
             child: Column(
               children: [
                 YoutubePlayerBuilder(
+                  onExitFullScreen: () {
+                    setState(() {
+                      isFullScreen = false;
+                    });
+                  },
                   player: YoutubePlayer(
                     controller: _controllers[
                         index], // Use the correct controller for each video
                     showVideoProgressIndicator: true,
+
                   ),
                   builder: (context, player) =>
                       player, // No need for Visibility anymore

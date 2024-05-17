@@ -12,6 +12,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,13 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
 );
   setupGetIt();
-
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  
+  void initialization() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+    FlutterNativeSplash.remove();
+  }
   runApp(TechnoVerse(
     appRouter: AppRouter(),
   ));
