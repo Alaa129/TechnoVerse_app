@@ -15,7 +15,8 @@ class AuthBlocListener extends StatelessWidget {
         if (state == GoogleAuthStatus.error) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(error),
+              backgroundColor: Color(0xFF7768E9),
+              content: Text("Error occurred , please try again"),
             ),
           );
         } else if (state == GoogleAuthStatus.authenticated) {
@@ -23,7 +24,7 @@ class AuthBlocListener extends StatelessWidget {
         } else if (state == GoogleAuthStatus.loading) {
           Center(
               child: CircularProgressIndicator(
-            color: Colors.blueAccent,
+            color: Color(0xFF7768E9),
           ));
         } 
       },

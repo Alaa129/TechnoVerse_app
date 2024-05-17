@@ -78,11 +78,13 @@ class _BottomNavState extends State<BottomNav> {
         ));
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndexScreen],
-      bottomNavigationBar: bottomNavigationBar(),
+      bottomNavigationBar: !isFullScreen ? bottomNavigationBar() : null,
     );
   }
 }
