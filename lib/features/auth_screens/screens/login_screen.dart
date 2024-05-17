@@ -38,9 +38,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 // color: Color.fromARGB(255, 88, 101, 224),
                 child: Center(
                   child: Image.asset(
-                    'assets/images/login1.png',
-                    fit: BoxFit.fill,
-                    // height: 350.h,
+                    'assets/images/newLog.jpg',
+                    fit: BoxFit.cover,
+                    width: 400.w,
                   ),
                 ),
               ),
@@ -52,15 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const CustomText(
-                      txt: 'Welcom to Our application',
-                      fontSize: 12,
-                      color: Colors.grey,
-                      textAlign: TextAlign.start,
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -74,8 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                               text: 'Help',
                               style: TextStyle(
-                                  color: Color(0xFF7768E9),
-                                  fontSize: 15)),
+                                  color: Color(0xFF7768E9), fontSize: 15)),
                           WidgetSpan(
                               child: Icon(
                             Icons.help,
@@ -86,19 +76,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.04,
+                      height: height * 0.02,
                     ),
                     CustomTxtForm(
-                      txt: 'Email',
-                      hint: 'type your email',
+                      txt: '',
+                      hint: 'Type Email Address',
                       errorMsg: 'Please type your email',
                       controller:
                           context.read<GoogleAuthCubit>().emailController,
                     ),
-                    SizedBox(height: height * 0.02),
                     CustomTxtForm(
-                      txt: 'Password',
-                      hint: 'your password',
+                      txt: '',
+                      hint: 'Type Password',
                       errorMsg: 'Enter your password',
                       controller:
                           context.read<GoogleAuthCubit>().passwordController,

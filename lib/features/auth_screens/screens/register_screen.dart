@@ -35,27 +35,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: height * 0.3,
                 width: double.infinity,
                 child: Image.asset(
-                  'assets/images/login.png',
+                  'assets/images/security.jpg',
                   fit: BoxFit.cover,
                 ),
               ),
               //in call
               SizedBox(
-                height: height * 0.02,
+                height: height * 0.012,
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CustomText(
-                      txt: 'Welcom to Our Application',
-                      fontSize: 12,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -81,29 +73,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.04,
+                      height: height * 0.012,
                     ),
                     CustomTxtForm(
-                        txt: 'User Name',
-                        hint: 'Your Name',
+                        txt: '',
+                        hint: 'Username',
                         errorMsg: 'Please Enter Your Name',
                         controller:
                             context.read<GoogleAuthCubit>().userNameController),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
                     CustomTxtForm(
-                      txt: 'Email',
-                      hint: 'eg.exampel@gmail.com',
+                      txt: '',
+                      hint: 'Email Address',
                       errorMsg: 'Please Enter Your Email',
                       controller:
                           context.read<GoogleAuthCubit>().emailController,
                     ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
                     CustomTxtForm(
-                        txt: 'Password',
+                        txt: '',
                         hint: 'Password',
                         passwordTxt: true,
                         isPassword: passToggle ? true : false,

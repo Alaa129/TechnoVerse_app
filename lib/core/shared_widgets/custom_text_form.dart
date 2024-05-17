@@ -9,7 +9,8 @@ class CustomTxtForm extends StatelessWidget {
       this.passwordTxt,
       required this.errorMsg,
       this.isPassword = false,
-      this.suffixIcon, this.controller})
+      this.suffixIcon,
+      this.controller})
       : super(key: key);
   final String txt;
   final String hint;
@@ -32,10 +33,16 @@ class CustomTxtForm extends StatelessWidget {
           controller: controller,
           obscureText: isPassword!,
           decoration: InputDecoration(
-              suffixIcon: suffixIcon,
-              hintText: hint,
-              border: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)))),
+            filled: true,
+            fillColor: Color.fromARGB(255, 233, 232, 232),
+            suffixIcon: suffixIcon,
+            hintText: hint,
+            border: OutlineInputBorder(
+              borderRadius:
+                  BorderRadius.circular(30.0), // Circular border radius
+              borderSide: BorderSide.none, // No border
+            ),
+          ),
           validator: (value) {
             if (value == null || value.isEmpty) {
               return errorMsg;
