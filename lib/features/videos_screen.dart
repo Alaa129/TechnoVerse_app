@@ -12,6 +12,11 @@ class VideoScreen extends StatefulWidget {
 class _VideoScreenState extends State<VideoScreen> {
   final List<String> _videoIds = [
     'XGOOZFXErl4',
+    'fSKU527JOrQ',
+    'UUcGbUF0ObM',
+    'qkqNpJsZPMs',
+    'Iv-Rux3l6-Q',
+    'M4sxvJ8qco4',
   ];
 
   late final List<YoutubePlayerController> _controllers;
