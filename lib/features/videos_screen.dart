@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 bool isFullScreen = false;
+
 class VideoScreen extends StatefulWidget {
   @override
   _VideoScreenState createState() => _VideoScreenState();
@@ -10,11 +11,10 @@ class VideoScreen extends StatefulWidget {
 
 class _VideoScreenState extends State<VideoScreen> {
   final List<String> _videoIds = [
-    'XdbspLY0ksw',
+    'XGOOZFXErl4',
   ];
 
   late final List<YoutubePlayerController> _controllers;
-
 
   @override
   void initState() {
@@ -79,7 +79,6 @@ class _VideoScreenState extends State<VideoScreen> {
                     controller: _controllers[
                         index], // Use the correct controller for each video
                     showVideoProgressIndicator: true,
-
                   ),
                   builder: (context, player) =>
                       player, // No need for Visibility anymore
