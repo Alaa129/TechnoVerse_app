@@ -59,13 +59,14 @@ class _OnBoardingState extends State<OnBoardingScreen> {
                   CustomPageView(
                     imgUrl: 'assets/images/onBoarding_todo_list.png',
                     text1:
-                        'Watch the educational videos and follow your progress',
+                        'Watch the educational videos\n and follow your progress',
                     text2:
-                        'We help you know the requirements of the field of technology \n and follow your progress',
+                        'We help you know the requirements of the field of\n technology and follow your progress',
                   ),
                   CustomPageView(
                     imgUrl: 'assets/images/onBoarding_vedio.png',
-                    text1: 'Develop your skills and learn a lot of information',
+                    text1:
+                        'Develop your skills and learn\n a lot of information',
                     text2: '',
                   ),
                 ],

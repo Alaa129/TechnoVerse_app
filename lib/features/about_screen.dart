@@ -45,17 +45,7 @@ class AboutScreens extends StatelessWidget {
           ),
           SizedBox(height: height * 0.006),
           const Text(
-            'Professor : Hassan Abdulaziz Elsabbagh',
-            style: TextStyle(
-                fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
-          ),
-          const Text(
-            'Professor : Mohammed Elghareeb',
-            style: TextStyle(
-                fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
-          ),
-          const Text(
-            'Professor : Tarek Afifi',
+            'Professor : Hassan Abdulaziz Elsabagh',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
@@ -70,12 +60,12 @@ class AboutScreens extends StatelessWidget {
           ),
           SizedBox(height: height * 0.006),
           const Text(
-            'Alaa Ahmed Shehab (Application)',
+            'Alaa Ahmed Shehab (Application programmer\nand designer and leader)',
             style: TextStyle(
-                fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
+                fontSize: 14, height: 1.5, fontWeight: FontWeight.w500),
           ),
           const Text(
-            'Eman Ismail Abdelkarim (Application)',
+            'Eman Ismail Abdelkarim (Application programmer)',
             style: TextStyle(
                 fontSize: 14, height: 1.5, fontWeight: FontWeight.w400),
           ),
